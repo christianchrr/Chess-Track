@@ -1,0 +1,31 @@
+<h2>Edit Move</h2>
+
+<form action=<%= "/moves/#{@move.id}" %> method="post">
+  <input type="hidden" name="_method" value="put">
+
+
+  <label for="name">Piece: <%= @move.piece %></label>
+  <select class="form-control" name="move[piece]" style="width: 30%;">
+    <option value=<%= @move.piece %>>-- Select --</option>
+    <option value="Pawn">Pawn</option>
+    <option value="Rook">Rook</option>
+    <option value="Knight">Knight</option>
+    <option value="Bishop">Bishop</option>
+    <option value="Queen">Queen</option>
+    <option value="King">King</option>
+  </select>
+  <br><br>
+
+  <label for="age">Square:</label>
+  <input type="text" name="move[square]" value=<%= @move.square %>>
+  <button type="submit" class="btn btn-primary">Update Move</button>
+</form>
+<br>
+<br>
+<form action=<%= "/moves/#{@move.id}" %> method="post">
+    <input type="hidden" name="_method" value="delete">
+    <button type="submit" class="btn btn-danger">Delete Move</button>
+</form><br>
+<form method="get" action="<%= "/moves/#{@move.id}" %>">
+  <button type="submit" class="btn btn-primary">Back</button>
+</form>

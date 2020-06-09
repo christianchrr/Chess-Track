@@ -1,0 +1,21 @@
+<h2>Move: <%= @move.id %></h2>
+
+<p>
+    <label><b>Piece: </b></label>
+    <%= @move.piece %>
+</p>
+<p> 
+    <label><b>Square: </b></label>
+    <%= @move.square %>
+</p>
+
+<form method="get" action="<%= "/moves/#{@move.id}/edit" %>">
+  <button type="submit" class="btn btn-warning">Edit Move</button>
+</form>
+<br>
+<form method="get" action="/moves">
+  <button type="submit" class="btn btn-primary">All Moves</button>
+</form>
+
+
+

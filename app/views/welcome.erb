@@ -1,0 +1,16 @@
+
+<h1>ChessTrack</h1>
+<h3>Log In</h3>
+<% if @error %>
+  <%= @error %> 
+<% end %> 
+<form method="post" action="/login">
+  <div class="input-group" style="margin-bottom: 10px">
+    <input class="form-control" type="text" name="username" placeholder="Username" style="margin-right: 5px">
+    <input class="form-control" type="password" name="password" placeholder="Password">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form><br>
+<form method="get" action="/signup">
+  <button type="submit" class="btn btn-success">Signup</button>
+</form>

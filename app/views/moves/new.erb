@@ -1,0 +1,20 @@
+<h2>New Move</h2>
+
+<form action="/moves" method="post">
+  <label for="piece">Piece:</label>
+  <select class="form-control" name="move[piece]" style="width: 30%;">
+    <option value="Pawn">Pawn</option>
+    <option value="Rook">Rook</option>
+    <option value="Knight">Knight</option>
+    <option value="Bishop">Bishop</option>
+    <option value="Queen">Queen</option>
+    <option value="King">King</option>
+  </select>
+  <br><br>
+  <label for="square">Square:</label>
+  <input type="text" name="move[square]">
+  <button type="submit" class="btn btn-primary">Create Move</button>
+</form><br>
+<form method="get" action="/moves">
+  <button type="submit" class="btn btn-success">All Moves</button>
+</form>
