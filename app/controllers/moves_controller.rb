@@ -19,6 +19,7 @@ class MovesController < ApplicationController
     end
 
     get '/moves/:id' do
+        @moves = Move.all
         id = params[:id]
         @move = Move.find_by(id: id)
         erb :"/moves/show"

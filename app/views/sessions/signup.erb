@@ -1,9 +1,13 @@
-<h2>Create An Account</h2>
+<h2><b>Create An Account</b></h2>
 
 <form action="/signup" method="post">
   <label for="username">Username:</label>
   <input type="text" name="user[username]">
   <label for="password">Password:</label>
   <input type="password" name="user[password]"><br><br>
-  <input type="submit" value="Create Account">
+  <button type="submit" class="btn btn-primary">Create Account</button>
+</form><br>
+
+<form method="get" action="/">
+  <button type="submit" class="btn btn-success">Back</button>
 </form>
