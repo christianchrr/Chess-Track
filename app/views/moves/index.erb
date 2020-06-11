@@ -7,10 +7,10 @@
 <% @moves.each.with_index(1) do |move, index| %>
   <h3><a href="<%= "/moves/#{move.id}" %>" style="text-decoration: none;">Move: <%= index %></a></h3>
 <% end %>
-<br><br>
+<br>
 <form method="get" action="/moves/new" >
   <button type="submit" class="btn btn-primary">New Move</button>
-</form>
+</form><br>
 
 <form onsubmit="confirm('Are you sure you want to delete all moves?')" action=<%= "/moves/delete" %> method="post">
     <input type="hidden" name="_method" value="delete"><br>

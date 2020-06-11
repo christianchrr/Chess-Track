@@ -1,7 +1,7 @@
 <h2><b>Move</b></h2>
 
 <p>
-    <label><b>Piece: </b></label>
+    <label>Piece: </label>
     <%= @move.piece %>
 </p>
 <p> 
@@ -12,7 +12,7 @@
 <form method="get" action="<%= "/moves/#{@move.id}/edit" %>">
   <button type="submit" class="btn btn-warning">Edit Move</button>
 </form>
-<br>
+<br><br>
 <form method="get" action="/moves">
   <button type="submit" class="btn btn-primary">All Moves</button>
 </form>
