@@ -13,12 +13,15 @@ class SessionController < ApplicationController
   # end
   
   post '/signup' do
-    user = User.create(params[:user])
-    user.username = params[:username]
-    user.password = params[:password]
-    user.save
-    session[:user_id] = user.id
-    redirect to '/moves'
+    user = User.new(params[:user])
+    # binding.pry
+    if !user.save
+      @error = user.errors.full_messages.join(" ")
+      erb :"/sessions/signup"
+    else
+      session[:user_id] = user.id
+      redirect to '/moves'
+    end
   end
   
   post '/login' do

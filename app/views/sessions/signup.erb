@@ -1,5 +1,9 @@
 <h2><b>Create An Account</b></h2>
 
+<% if @error %>
+  <%= @error %> 
+<% end %> 
+
 <form action="/signup" method="post">
   <label for="username">Username:</label>
   <input type="text" name="user[username]">

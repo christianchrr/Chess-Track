@@ -3,12 +3,20 @@ require './config/environment'
 class MovesController < ApplicationController
     
     get '/moves' do
-        @moves = Move.all
-        erb :"moves/index"
+        if logged_in
+            @moves = current_user.moves
+            erb :"/moves/index"
+        else 
+            redirect to '/'
+        end
     end
 
     get '/moves/new' do
-        erb :"moves/new"
+        if logged_in
+            erb :"/moves/new"
+        else
+            redirect to '/'
+        end
     end
 
     post '/moves' do
@@ -19,19 +27,32 @@ class MovesController < ApplicationController
     end
 
     get '/moves/:id' do
-        @moves = Move.all
         id = params[:id]
-        @move = Move.find_by(id: id)
-        erb :"/moves/show"
+        if !logged_in
+            redirect to '/'
+        end
+        @move = current_user.moves.find_by(id: id)
+        if @move
+            erb :"/moves/show"
+        else
+            redirect to "/moves"
+        end
     end
 
     get '/moves/:id/edit' do
+        if !logged_in
+            redirect to '/'
+        end
         @move = Move.find_by(id: params[:id])
-        erb :"/moves/edit"
+        if @move.user = current_user 
+            erb :"/moves/edit"
+        else
+            redirect to "/moves"
+        end
     end
 
     put '/moves/:id' do
-        move = Move.find_by(id: params[:id])
+        move = current_user.moves.find_by(id: params[:id])
         move.update(params[:move])
         redirect to "/moves/#{move.id}"
     end
@@ -46,7 +67,7 @@ class MovesController < ApplicationController
     end
 
     delete '/moves/:id' do
-        move = Move.find_by(id: params[:id])
+        move = current_user.moves.find_by(id: params[:id])
         move.destroy
         redirect to "/moves"
     end

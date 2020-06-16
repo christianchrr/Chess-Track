@@ -4,7 +4,7 @@
   <input type="hidden" name="_method" value="put">
 
 
-  <label for="name">Piece: <%= @move.piece %></label>
+  <label for="piece">Piece: <%= @move.piece %></label>
   <select class="form-control" name="move[piece]" style="width: 30%;">
     <option value=<%= @move.piece %>>-- Select --</option>
     <option value="Pawn">Pawn</option>
@@ -16,9 +16,9 @@
   </select>
   <br><br>
 
-  <label for="age">Square:</label>
+  <label for="square">Square: <%= @move.square %></label>
   <select class="form-control" name="move[square]" style="width: 30%;">
-  <option value=<%= @move.square %>>-- Select --</option>
+    <option value=<%= @move.square %>>-- Select --</option>
     <option value="A-1">A-1</option>
     <option value="A-2">A-2</option>
     <option value="A-3">A-3</option>
@@ -88,7 +88,7 @@
 </form>
 <br>
 <br>
-<form action=<%= "/moves/#{@move.id}" %> method="post">
+<form onsubmit="confirm('Are you sure you want to delete this move?')" action=<%= "/moves/#{@move.id}" %> method="post">
     <input type="hidden" name="_method" value="delete">
     <button type="submit" class="btn btn-danger">Delete Move</button>
 </form><br>
